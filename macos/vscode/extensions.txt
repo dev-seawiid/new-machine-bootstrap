@@ -1,0 +1,25 @@
+# VSCode 확장 목록
+# 추출: code --list-extensions > macos/vscode/extensions.txt
+# 설치: setup.sh 가 '#' 주석·빈 줄 무시하고 첫 토큰만 설치
+#
+# 표기: [KEEP] 유지 / [REVIEW] 검토 / [REMOVE] 프론트엔드엔 불필요
+
+# ── 필수 (유지) ─────────────────────────────────────────────
+anthropic.claude-code              # [KEEP] Claude Code 연동
+dbaeumer.vscode-eslint             # [KEEP] ESLint 린트 표시·자동수정
+esbenp.prettier-vscode             # [KEEP] Prettier 코드 포맷
+bradlc.vscode-tailwindcss          # [KEEP] Tailwind 클래스 자동완성
+formulahendry.auto-rename-tag      # [KEEP] HTML/JSX 짝 태그 자동 리네임
+streetsidesoftware.code-spell-checker # [KEEP] 오타 검사
+usernamehw.errorlens               # [KEEP] 에러·경고를 코드 옆 인라인 표시
+yoavbls.pretty-ts-errors           # [KEEP] TS 에러 메시지 읽기 쉽게
+
+# ── 편의 (취향) ─────────────────────────────────────────────
+meganrogge.template-string-converter # [KEEP] ${} 입력시 따옴표→백틱 자동
+
+# ── git ─────────────────────────────────────────────────────
+mhutchie.git-graph                 # [KEEP] 커밋 그래프. 무료·가벼움·팝업 없음
+
+# ── 추가 추천 (필요시 주석 해제) ────────────────────────────
+# biomejs.biome                    # ESLint+Prettier 통합 대체(초고속). 팀이 Biome 쓸 때만
+# dsznajder.es7-react-js-snippets  # React 스니펫 (rafce 등)

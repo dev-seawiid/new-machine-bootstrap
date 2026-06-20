@@ -1,0 +1,58 @@
+# Brewfile — macOS 패키지 명세
+# 설치: brew bundle --file=macos/Brewfile
+# 현재 환경 추출: brew bundle dump --file=macos/Brewfile --force
+
+tap "homebrew/bundle"
+
+# ── CLI: 필수 ────────────────────────────────────────────────
+brew "git"         # 버전 관리. 사실상 필수
+brew "mise"        # 언어 런타임 버전 관리 (node/python/ruby 한 곳에서)
+brew "gh"          # GitHub CLI. PR·이슈·repo를 터미널에서 (gh pr create 등)
+cask "claude-code" # Claude Code. 터미널 AI 코딩 에이전트
+cask "openusage"   # 메뉴바 AI/API 사용량(토큰·비용) 모니터
+cask "claude"      # Claude 데스크톱 앱 (CLI 보완: 기획·이미지 첨부 등)
+
+# ── 프론트엔드 ──────────────────────────────────────────────
+# node 런타임은 brew 아님 → mise로 관리 (.tool-versions 참고)
+brew "pnpm"        # JS 패키지 매니저. npm보다 빠르고 디스크 효율적
+
+# ── CLI: 터미널 생산성 ──────────────────────────────────────
+brew "ripgrep"     # 초고속 코드 검색 (rg). grep 대체. 안 쓰면 빼도 무방
+brew "fd"          # 빠른 파일 찾기 (fd). find 대체, 문법 단순
+brew "fzf"         # 퍼지 파인더. Ctrl+R 히스토리 검색·파일 선택 인터랙티브
+brew "jq"          # JSON 파싱·가공. API 응답 다룰 때 유용
+brew "bat"         # cat + 문법 하이라이트 + 줄번호
+brew "eza"         # ls 대체. 색상·아이콘·트리 보기
+brew "zoxide"      # 똑똑한 cd. 자주 간 디렉토리로 점프 (z 폴더명)
+brew "tree"        # 디렉토리 구조를 트리로 출력
+
+# ── 셸 ──────────────────────────────────────────────────────
+brew "starship"               # 터미널 프롬프트 꾸미기 (git 브랜치·언어 버전 표시)
+brew "zsh-autosuggestions"    # 히스토리 기반 회색 자동완성 제안
+brew "zsh-syntax-highlighting" # 명령어 색상 (오타 즉시 빨강)
+brew "atuin"                  # 셸 히스토리를 DB로 관리 + 퍼지검색 (Ctrl+R 강화)
+brew "tealdeer"              # tldr 명령. man 대신 예제 위주 요약
+# ※ zsh 플러그인은 .zshrc 에 source 추가해야 활성화 (dotfiles 단계에서)
+
+# ── GUI 앱 (cask) ───────────────────────────────────────────
+cask "visual-studio-code"  # 코드 에디터
+cask "cmux"                # Ghostty 기반 터미널 (세로 탭, AI 코딩 에이전트용)
+cask "google-chrome"       # 브라우저
+cask "rectangle"           # 키보드 단축키로 창 정렬·분할
+cask "raycast"             # Spotlight 대체 런처 (앱 실행·클립보드·확장)
+cask "obsidian"            # 마크다운 노트·지식관리
+
+# ── GUI: 프론트엔드 직무 ────────────────────────────────────
+cask "figma"               # 디자인 시안 확인·핸드오프
+cask "bruno"               # API 테스트 (로컬·오픈소스, Postman 대체)
+cask "docker"              # 로컬 백엔드·DB 컨테이너
+cask "responsively"        # 반응형 다중뷰 브라우저 (여러 화면폭 동시 확인)
+cask "imageoptim"          # 이미지 용량 최적화
+
+# ── Mac App Store (mas 필요: brew "mas") ───────────────────
+# brew "mas"
+# mas "Slack", id: 803453959
+
+# ※ 안 쓰는 항목은 줄째로 삭제하면 됨.
+#   판단 기준: ripgrep/fd/fzf/zoxide/bat/eza/starship/raycast 는
+#   "있으면 편한 생산성 도구"이지 필수는 아님. 모르면 빼도 개발에 지장 없음.
