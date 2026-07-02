@@ -2,8 +2,6 @@
 # 설치: brew bundle --file=macos/Brewfile
 # 현재 환경 추출: brew bundle dump --file=macos/Brewfile --force
 
-tap "homebrew/bundle"
-
 # ── CLI: 필수 ────────────────────────────────────────────────
 brew "git"         # 버전 관리. 사실상 필수
 brew "mise"        # 언어 런타임 버전 관리 (node/python/ruby 한 곳에서)
@@ -45,7 +43,7 @@ cask "obsidian"            # 마크다운 노트·지식관리
 # ── GUI: 프론트엔드 직무 ────────────────────────────────────
 cask "figma"               # 디자인 시안 확인·핸드오프
 cask "bruno"               # API 테스트 (로컬·오픈소스, Postman 대체)
-cask "docker"              # 로컬 백엔드·DB 컨테이너
+cask "docker-desktop"      # 로컬 백엔드·DB 컨테이너 (구 이름: docker)
 cask "responsively"        # 반응형 다중뷰 브라우저 (여러 화면폭 동시 확인)
 cask "imageoptim"          # 이미지 용량 최적화
 
