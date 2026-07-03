@@ -87,6 +87,7 @@ git clone <이 repo URL> ~/Projects/new-machine-bootstrap
 | `bad interpreter` / 이상한 에러       | 윈도우 줄바꿈(CRLF)          | `sed -i '' 's/\r$//' macos/setup.sh` 로 LF 변환                |
 | `operation not permitted`             | macOS 보안(전체 디스크 접근) | 시스템설정 ▸ 개인정보보호 ▸ 전체 디스크 접근 → 터미널 허용     |
 | 다운로드 파일 "차단됨(quarantine)"    | Gatekeeper                   | `xattr -d com.apple.quarantine macos/setup.sh`                 |
+| docker-desktop 만 설치 안 됨          | 관리자 암호(sudo) 필요 cask  | 대화형 터미널에서 `brew install --cask docker-desktop` 재실행  |
 
 > ⚠️ `sudo` 는 꼭 필요한 경우 아니면 쓰지 말 것 (Homebrew 는 sudo 금지).
 

@@ -15,6 +15,14 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 1
 fi
 
+# docker-desktop 등 일부 cask는 설치에 관리자 권한 필요 → 암호를 미리 받아둠
+if ! sudo -v; then
+  echo "관리자 암호 인증 실패 — 대화형 터미널에서 실행하세요." >&2
+  exit 1
+fi
+# 설치가 길어져도 sudo 세션이 만료되지 않게 백그라운드에서 갱신
+while true; do sudo -n true; sleep 60; kill -0 "$$" 2>/dev/null || exit; done &
+
 # --- 1. Homebrew ----------------------------------------------------------
 if ! command -v brew >/dev/null 2>&1; then
   log "Homebrew 설치"
@@ -36,8 +44,11 @@ if ! grep -qs 'brew shellenv' "$HOME/.zprofile"; then
 fi
 
 # --- 2. 패키지 설치 (Brewfile) -------------------------------------------
+# 패키지 하나가 실패해도 나머지 단계(mise·VSCode 등)는 계속 진행
 log "brew bundle"
-brew bundle --file="$(dirname "$0")/Brewfile"
+if ! brew bundle --file="$(dirname "$0")/Brewfile"; then
+  log "일부 패키지 설치 실패 — 'brew bundle check --file=macos/Brewfile' 로 확인 후 재실행"
+fi
 
 # --- 3. 언어 런타임 (mise) -----------------------------------------------
 # node 등은 brew 아닌 mise로 관리. .tool-versions 의 버전을 설치
