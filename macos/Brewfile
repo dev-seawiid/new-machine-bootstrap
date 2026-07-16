@@ -39,6 +39,8 @@ cask "google-chrome"       # 브라우저
 cask "rectangle"           # 키보드 단축키로 창 정렬·분할
 cask "raycast"             # Spotlight 대체 런처 (앱 실행·클립보드·확장)
 cask "obsidian"            # 마크다운 노트·지식관리
+cask "stats"               # 메뉴바 시스템 모니터 (CPU·메모리·네트워크)
+cask "keepingyouawake"     # 메뉴바 토글로 시스템 절전 방지
 
 # ── GUI: 프론트엔드 직무 ────────────────────────────────────
 cask "figma"               # 디자인 시안 확인·핸드오프
